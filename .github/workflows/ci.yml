@@ -1,0 +1,40 @@
+name: Source checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-checks:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install build dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Test configuration, fingerprint checks and packaging
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Verify bundled MinHook source
+        shell: python
+        run: |
+          import hashlib, json
+          from pathlib import Path
+          root = Path('vendor/minhook')
+          manifest = json.loads((root / 'upstream.json').read_text(encoding='utf-8-sig'))
+          for entry in manifest['files']:
+              digest = hashlib.sha256((root / entry['path']).read_bytes()).hexdigest()
+              if digest != entry['sha256']:
+                  raise SystemExit('MinHook hash mismatch: ' + entry['path'])
+          print('MinHook source hashes verified')
+      - name: Package source
+        run: python tools/package_source.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KardsFactionToolkit-source
+          path: dist/KardsFactionToolkit-source.zip

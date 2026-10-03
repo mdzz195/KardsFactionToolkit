@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "factions": [
+    {
+      "name": "Romania",
+      "display_name": "罗马尼亚",
+      "value": 13,
+      "deck_code": "b"
+    }
+  ]
+}

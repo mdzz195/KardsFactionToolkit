@@ -1,0 +1,10 @@
+* text=auto
+*.cpp text eol=lf
+*.h text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.ps1 text eol=crlf
+# Preserve upstream bytes for vendor/upstream.json SHA256 verification.
+vendor/** -text

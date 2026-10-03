@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "kards-20261002-win64",
+  "description": "Locally verified UE 5.6 KARDS x64 build. File name and whole-file SHA256 are not compatibility gates.",
+  "timestamp": "0xfe01dfb1",
+  "image_size": "0x9cc4000",
+  "entry_rva": "0x6ea1e10",
+  "entry_bytes": "4883ec28e8779600004883c428e97afeffff",
+  "functions": {
+    "NameToEnum": {"rva": "0x4af9430", "sha256": "008eb9c9a84d276f78f7c9509f208d5b1fd210c32e8d242695b30740e0e0f522"},
+    "Encode": {"rva": "0x4af4360", "sha256": "fe6683572d69d952c006c8e8c0443299c92ffcc43d0f567c0a3676fd899c4434"},
+    "Decode": {"rva": "0x4af1210", "sha256": "18e5fa52d4eaad8706ad43ef32869a666a307e1b9dc3eaaa4ca9d8fb8d5ba524"},
+    "EnumConstructor": {"rva": "0x4521de0", "sha256": "03b39c607bde77586b5fce4acc1a855567786dce896670667de71af8b3a3bc72"}
+  },
+  "rvas": {
+    "Params": "0x8fc8f80",
+    "Enumerators": "0x7c6c290",
+    "Outer": "0x4521b80",
+    "EnumName": "0x7c6c4a0",
+    "Singleton": "0x938f6c0",
+    "StaticSingleton": "0x938f6c8",
+    "TestFree": "0x123ab80",
+    "TestConstruct": "0x11ce1b0"
+  }
+}
